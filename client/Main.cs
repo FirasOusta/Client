@@ -56,14 +56,14 @@ namespace client
                     string result = response.Content.ReadAsStringAsync().Result;
 
                     var serializer = new XmlSerializer(typeof(Person));
-                    Person pers;
+                    Person person;
 
                     using (TextReader reader = new StringReader(result))
                     {
-                        pers = (Person)serializer.Deserialize(reader);
+                        person = (Person)serializer.Deserialize(reader);
                     }
-                    lblName.Text = pers.Name;
-                    lblAddress.Text = pers.Address;
+                    lblName.Text = person.Name;
+                    lblAddress.Text = person.Address;
                 }
             }
             catch (Exception ex)
